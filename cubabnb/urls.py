@@ -7,7 +7,8 @@ admin.autodiscover()
 urlpatterns = patterns('',
     # Examples:
     # url(r'^$', 'CubaBB.views.home', name='home'),
-    url(r'^cubabb/', include('apps.bb.urls')),
+    url(r'^api/v1/', include('apps.bb.urls')),
+    url(r'^api/v1/docs/', include('rest_framework_swagger.urls')),
 
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
