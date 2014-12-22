@@ -17,7 +17,7 @@ def gen_unicorn_cmd():
 
 @task
 def deploy():
-    prob_home = '/var/www/html/websites/cubabnb.com'
+    prob_home = '/var/www/django/cubabnb'
     with cd(prob_home):
         sudo('git pull')
         run('workon {} && python manage.py collectstatic --noinput'.format(ENV_NAME))
