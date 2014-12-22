@@ -9,7 +9,7 @@ fab deploy -H root@www.jedutils.com
 """
 
 ENV_NAME = 'cubabnb'
-PORT = 8001
+PORT = 8004
 
 
 def gen_unicorn_cmd():
