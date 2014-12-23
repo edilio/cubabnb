@@ -1,0 +1,130 @@
+body {
+  padding: 10px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+#provs{
+    top : -20px;
+    float: right;
+    clear: left;
+    border-color: red;
+}
+
+#busca-casa-de-alquiler-en-cuba{
+    width: 350px;
+}
+
+
+.div-piscina {
+    height: 25px;
+    width: 30px;
+    float: left;
+    background-image: url(/media/images/all-imgs.gif);
+    background-position: -2px 25px;
+    margin-left: -2px;
+}
+.div-aire-acondicionado {
+    height: 25px;
+    width: 22px;
+    float: left;
+    background-image: url(/media/images/all-imgs.gif);
+    background-position: -95px 25px;
+}
+.div-ventilador {
+    height: 25px;
+    width: 22px;
+    float: left;
+    background-image: url(/media/images/all-imgs.gif);
+    background-position: -117px 25px;
+}
+.div-tv {
+    height: 25px;
+    width: 22px;
+    float: left;
+    background-image: url(/media/images/all-imgs.gif);
+    background-position: -33px 25px;
+}
+.div-phone {
+    height: 25px;
+    width: 22px;
+    float: left;
+    background-image: url(/media/images/all-imgs.gif);
+    background-position: -179px 25px;
+    margin-left: 2px;
+}
+.div-audio {
+    height: 25px;
+    width: 22px;
+    float: left;
+    background-image: url(/media/images/all-imgs.gif);
+    background-position: -158px 25px;
+}
+
+.div-nevera {
+    height: 25px;
+    width: 21px;
+    float: left;
+    background-image: url(/media/images/all-imgs.gif);
+    background-position: -75px 25px;
+}
+
+.div-cocina {
+    height: 25px;
+    width: 22px;
+    float: left;
+    background-image: url(/media/images/all-imgs.gif);
+    background-position: -55px 25px;
+}
+
+.div-seguridad {
+    height: 24px;
+    width: 21px;
+    float: left;
+    background-image: url(/media/images/all-imgs.gif);
+    background-position: -139px 25px;
+}
+
+.div-parqueo {
+    height: 25px;
+    width: 28px;
+    float: left;
+    background-image: url(/media/images/all-imgs.gif);
+    background-position: -205px 25px;
+}
+
+.div-llave {
+    height: 25px;
+    width: 28px;
+    float: left;
+    background-image: url(/media/images/all-imgs.gif);
+    background-position: -233px 25px;
+}
+
+.div-gastr {
+    height: 25px;
+    width: 14px;
+    float: left;
+    background-image: url(/media/images/all-imgs.gif);
+    background-position: -260px 25px;
+}
+
+/*.div-lenguage-ES {*/
+    /*background-image: url(/images/all-imgs.gif);*/
+    /*height: 20px;*/
+    /*width: 33px;*/
+    /*background-position: -700px 25px;*/
+    /*background-repeat: no-repeat;*/
+/*}*/
+
+
+/*.div-lenguage-EN {*/
+    /*background-image: url(/images/all-imgs.gif);*/
+    /*height: 20px;*/
+    /*width: 33px;*/
+    /*background-position: -600px 25px;*/
+    /*background-repeat: no-repeat;*/
+/*}*/

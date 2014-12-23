@@ -1,4 +1,5 @@
 from rest_framework import generics
+from django.shortcuts import render
 
 from .models import (Province, Municipality, Language, Property, Contact, Guide,
                      ReviewGuide, ReviewProperty, PropertyPicture, Facility, PropertyFacility)
@@ -116,3 +117,7 @@ class PropertyFacilityList(generics.ListCreateAPIView):
 class PropertyFacilityDetail(generics.RetrieveUpdateDestroyAPIView):
     queryset = PropertyFacility.objects.all()
     serializer_class = PropertyFacilitySerializer
+
+
+def home(request):
+    return render(request, 'base.html', {})
