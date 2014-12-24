@@ -120,4 +120,5 @@ class PropertyFacilityDetail(generics.RetrieveUpdateDestroyAPIView):
 
 
 def home(request):
-    return render(request, 'base.html', {})
+    properties = Property.objects.all()
+    return render(request, 'home.html', { 'properties': properties})

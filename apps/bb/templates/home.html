@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <ul>
+        {% for prop in properties %}
+        <li>
+            <div id="{{ prop.id }}"><h4>{{ prop.name }}</h4></div>
+            <p> {{ prop.description }} </p>
+        </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
