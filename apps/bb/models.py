@@ -44,6 +44,13 @@ class Property(models.Model):
     class Meta:
         verbose_name_plural = "Properties"
 
+    @property
+    def div_amenities_names(self):
+        names = []
+        for amenity in self.amenities.all():
+            names.append(amenity.facility.div_name)
+        return names
+
     def __unicode__(self):
         return self.name
 
@@ -119,7 +126,7 @@ class Facility(models.Model):
 
 
 class PropertyFacility(models.Model):
-    property = models.ForeignKey(Property)
+    property = models.ForeignKey(Property, related_name='amenities')
     facility = models.ForeignKey(Facility)
 
     class Meta:

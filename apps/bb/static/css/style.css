@@ -128,3 +128,7 @@ a {
     /*background-position: -600px 25px;*/
     /*background-repeat: no-repeat;*/
 /*}*/
+
+.amenities:after{
+    clear: both;
+}
