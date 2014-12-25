@@ -4,7 +4,9 @@
     <ul>
         {% for prop in properties %}
         <li>
-            <div id="{{ prop.id }}"><h4>{{ prop.name }}</h4></div>
+            <a href="{% url 'property_detail' prop.slug %}">
+                <div id="{{ prop.id }}"><h4>{{ prop.name }}</h4></div>
+            </a>
             <div id="amenities-for-{{ prop.id }}" class="amenities">
                 {% for name in prop.div_amenities_names %}
                     <div class="div-{{ name }}"></div>
@@ -14,6 +16,7 @@
                 {% endfor %}
             </div>
             <p> {{ prop.description }} </p>
+
         </li>
         {% endfor %}
     </ul>

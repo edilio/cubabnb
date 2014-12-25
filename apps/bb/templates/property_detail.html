@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>{{ property_obj.name }}</h1>
+    <div>
+        <div id="amenities-for-{{ property_obj.id }}" class="amenities">
+                {% for name in property_obj.div_amenities_names %}
+                    <div class="div-{{ name }}"></div>
+                    {% if forloop.last %}
+                        <br/>
+                    {% endif %}
+                {% endfor %}
+        </div>
+        <p> {{ property_obj.description }} </p>
+        <h3>Pictures</h3>
+        {% for pict in property_obj.pictures_urls %}
+            <img alt="800x300" src="{{ pict }}" class="property_img">
+        {% endfor %}
+    </div>
+
+{% endblock %}

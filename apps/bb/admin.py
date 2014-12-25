@@ -22,6 +22,13 @@ class GuideAdmin(admin.ModelAdmin):
     search_fields = ('name', 'phone', 'cell')
 
 
+@admin.register(Property)
+class PropertyAdmin(admin.ModelAdmin):
+    list_display = ('name', 'contact', 'bedrooms', 'bath_rooms', 'rate_per_room', 'slug')
+    search_fields = ('name', 'description', 'near_by_places')
+    list_filter = ('active', 'bedrooms', 'bath_rooms')
+
+
 def reg_model(model):
     admin.site.register(model)
 
@@ -34,5 +41,5 @@ def reg_models(models):
 def reg_admin(model, admin_model):
     admin.site.register(model, admin_model)
 
-reg_models([Language, Province, Property, ReviewProperty, ReviewGuide, PropertyPicture,
+reg_models([Language, Province, ReviewProperty, ReviewGuide, PropertyPicture,
             Facility, PropertyFacility])

@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django.template.defaultfilters import slugify
 
 
 class Province(models.Model):
@@ -41,6 +42,8 @@ class Property(models.Model):
 
     active = models.BooleanField(default=True)
 
+    slug = models.SlugField(max_length=250, default='', editable=False)
+
     class Meta:
         verbose_name_plural = "Properties"
 
@@ -50,6 +53,24 @@ class Property(models.Model):
         for amenity in self.amenities.all():
             names.append(amenity.facility.div_name)
         return names
+
+    @property
+    def pictures(self):
+        return [p.picture for p in self.propertypicture_set.all()]
+
+    @property
+    def pictures_urls(self):
+        return [p.picture_url() for p in self.propertypicture_set.all()]
+
+    @models.permalink
+    def get_absolute_url(self):
+        return ('property_detail', (), {
+            'slug': self.slug,
+        })
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name) + '-' + str(self.id)
+        super(Property, self).save(*args, **kwargs)
 
     def __unicode__(self):
         return self.name
@@ -109,6 +130,11 @@ class PropertyPicture(models.Model):
     property = models.ForeignKey(Property)
     picture = models.ImageField(upload_to=settings.UPLOAD_IMAGES_FOLDER)
     tag = models.CharField(null=True, blank=True, max_length=30)
+
+    def picture_url(self):
+        url = self.picture.url
+        i = url.find('/media')
+        return url[i:]
 
     def __unicode__(self):
         return self.property.name
