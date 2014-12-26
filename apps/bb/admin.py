@@ -29,6 +29,11 @@ class PropertyAdmin(admin.ModelAdmin):
     list_filter = ('active', 'bedrooms', 'bath_rooms')
 
 
+@admin.register(PropertyPicture)
+class PropertyPictureAdmin(admin.ModelAdmin):
+    list_display = ('property', 'index', 'tag')
+
+
 def reg_model(model):
     admin.site.register(model)
 
@@ -41,5 +46,5 @@ def reg_models(models):
 def reg_admin(model, admin_model):
     admin.site.register(model, admin_model)
 
-reg_models([Language, Province, ReviewProperty, ReviewGuide, PropertyPicture,
+reg_models([Language, Province, ReviewProperty, ReviewGuide,
             Facility, PropertyFacility])

@@ -137,6 +137,9 @@ class PropertyPicture(models.Model):
         i = url.find('/media')
         return url[i:]
 
+    class Meta:
+        ordering = ['index']
+
     def __unicode__(self):
         return self.property.name
 
