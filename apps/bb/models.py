@@ -60,7 +60,7 @@ class Property(models.Model):
 
     @property
     def pictures_urls(self):
-        return [p.picture_url() for p in self.propertypicture_set.all()]
+        return [(p.picture_url(), p.tag) for p in self.propertypicture_set.all()]
 
     @models.permalink
     def get_absolute_url(self):
@@ -130,6 +130,7 @@ class PropertyPicture(models.Model):
     property = models.ForeignKey(Property)
     picture = models.ImageField(upload_to=settings.UPLOAD_IMAGES_FOLDER)
     tag = models.CharField(null=True, blank=True, max_length=30)
+    index = models.PositiveSmallIntegerField(default=0)
 
     def picture_url(self):
         url = self.picture.url

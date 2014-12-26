@@ -13,7 +13,8 @@
         </div>
         <p> {{ property_obj.description }} </p>
         <h3>Pictures</h3>
-        {% for pict in property_obj.pictures_urls %}
+        {% for pict, tag in property_obj.pictures_urls %}
+            <h3>{{ tag }}</h3>
             <img alt="800x300" src="{{ pict }}" class="property_img">
         {% endfor %}
     </div>
