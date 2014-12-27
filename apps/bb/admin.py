@@ -22,16 +22,26 @@ class GuideAdmin(admin.ModelAdmin):
     search_fields = ('name', 'phone', 'cell')
 
 
+class PictureInline(admin.StackedInline):
+    model = PropertyPicture
+
+
+class FacilityInline(admin.StackedInline):
+    model = PropertyFacility
+
+
 @admin.register(Property)
 class PropertyAdmin(admin.ModelAdmin):
     list_display = ('name', 'contact', 'bedrooms', 'bath_rooms', 'rate_per_room', 'slug')
     search_fields = ('name', 'description', 'near_by_places')
     list_filter = ('active', 'bedrooms', 'bath_rooms')
 
+    inlines = [PictureInline, FacilityInline]
 
-@admin.register(PropertyPicture)
-class PropertyPictureAdmin(admin.ModelAdmin):
-    list_display = ('property', 'index', 'tag')
+
+# @admin.register(PropertyPicture)
+# class PropertyPictureAdmin(admin.ModelAdmin):
+#     list_display = ('property', 'index', 'tag')
 
 
 def reg_model(model):
