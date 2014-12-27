@@ -39,11 +39,6 @@ class PropertyAdmin(admin.ModelAdmin):
     inlines = [PictureInline, FacilityInline]
 
 
-# @admin.register(PropertyPicture)
-# class PropertyPictureAdmin(admin.ModelAdmin):
-#     list_display = ('property', 'index', 'tag')
-
-
 def reg_model(model):
     admin.site.register(model)
 

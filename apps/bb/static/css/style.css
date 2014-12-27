@@ -132,3 +132,11 @@ a {
 .amenities:after{
     clear: both;
 }
+
+#search_room{
+    width: 250px;
+}
+
+#center-title{
+    text-align: center;
+}

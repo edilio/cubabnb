@@ -5,12 +5,11 @@ from ..models import Property
 
 
 def home(request):
-    properties = Property.objects.all()
-    return render(request, 'home.html', {'properties': properties})
+    return render(request, 'home.html', {})
 
 
 class PropertyPageView(TemplateView):
-    template_name = 'home.html'
+    template_name = 'rooms_list.html'
     http_method_names = ['get']
 
     def get_context_data(self, **kwargs):
