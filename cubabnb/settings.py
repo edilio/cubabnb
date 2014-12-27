@@ -134,6 +134,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sitemaps',
     # Uncomment the next line to enable the admin:
     'django.contrib.admin',
     # Uncomment the next line to enable admin documentation:
@@ -142,6 +143,7 @@ INSTALLED_APPS = (
     'apps.bb',
     'rest_framework',
     'rest_framework_swagger',
+    'robots',
 )
 
 # A sample logging configuration. The only tangible logging
@@ -210,9 +212,10 @@ SWAGGER_SETTINGS = {
     "is_superuser": False,  # Set to True to enforce admin only access
 }
 
+SITE_ID = 1
 if not DEBUG:
     ROBOTS_CACHE_TIMEOUT = 60*60*24
 
 ROBOTS_SITEMAP_URLS = [
-    'http://www.cubabnb.com/sitemap.xml',
+    'http://bnb.jedutils.com/sitemap.xml',
 ]

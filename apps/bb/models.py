@@ -1,6 +1,7 @@
 from django.db import models
 from django.conf import settings
 from django.template.defaultfilters import slugify
+from django.utils import timezone
 
 
 class Province(models.Model):
@@ -43,6 +44,7 @@ class Property(models.Model):
     active = models.BooleanField(default=True)
 
     slug = models.SlugField(max_length=250, default='', editable=False)
+    edit_date = models.DateTimeField(null=True, blank=True)
 
     class Meta:
         verbose_name_plural = "Properties"
@@ -70,6 +72,7 @@ class Property(models.Model):
 
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name) + '-' + str(self.id)
+        self.edit_date = timezone.now()
         super(Property, self).save(*args, **kwargs)
 
     def __unicode__(self):
