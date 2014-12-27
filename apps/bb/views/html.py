@@ -1,5 +1,6 @@
 from django.views.generic import TemplateView, DetailView
 from django.shortcuts import render
+from django.db.models import Q
 
 from ..models import Property
 
@@ -16,11 +17,12 @@ class PropertyPageView(TemplateView):
         context = super(PropertyPageView, self).get_context_data(**kwargs)
 
         p = self.request.GET.get('p')
-        search_term = self.request.GET.get('search', '')
+        search_term = self.request.GET.get('q', '')
+        properties = Property.objects.all()
         # problems, prior, next_page, p = get_problems(self.request.user, p, term=search_term, category=category_name)
         context.update({
             # 'page': page,
-            'properties': Property.objects.all(),
+            'properties': properties.filter(Q(name__icontains=search_term) | Q(description__icontains=search_term)),
             # 'prior': prior,
             # 'next': next_page,
             # 'p': p,
