@@ -16,17 +16,18 @@ class PropertyPageView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(PropertyPageView, self).get_context_data(**kwargs)
 
-        p = self.request.GET.get('p')
+        p = self.request.GET.get('p', 0)
         search_term = self.request.GET.get('q', '')
         properties = Property.objects.all()
         # problems, prior, next_page, p = get_problems(self.request.user, p, term=search_term, category=category_name)
         context.update({
             # 'page': page,
+            'q': search_term,
             'properties': properties.filter(Q(name__icontains=search_term) | Q(description__icontains=search_term)),
             # 'prior': prior,
             # 'next': next_page,
-            # 'p': p,
-            # 'previous_page': p - 1
+            'p': p,
+            'previous_page': p - 1
         })
         return context
 
